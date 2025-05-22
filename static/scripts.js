@@ -1,5 +1,6 @@
 //AI generated javascript code
 // this is a python class not web development and design i dont think im supposed to know how to do this//
+// dw I still understand what its doing and how it works I js didn't wanna do allat//
 
 
 function openGoogleCalendar() {
