@@ -1,0 +1,108 @@
+<!--
+    Partially AI generated html file
+    ****this is a python class not web development and design i dont think im supposed to know how to do this
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container grid-layout">
+        <div class="date-area">
+            <i class="fas fa-calendar-alt" onclick="openGoogleCalendar()"></i>
+            <span>{{ current_date }}</span>
+        </div>
+        <div class="timeleft-area">
+            <h2>Time left / Current period</h2>
+            <h3>{{ schedule_title }}</h3>
+            <h3 id="time-left-text">{{ time_left }}</h3>
+            <h4 id="countdown-timer">{{ time_left_display }}</h4>
+        </div>
+        <div class="weather-area">
+            <h2>Weather</h2>
+            {% set weather_parts = weather.split(' ', 1) %}
+            <span class="weather-emoji">{{ weather_parts[0] }}</span>
+            <span class="weather-info">{{ weather_parts[1] }}</span>
+        </div>
+        <div class="schedule-area">
+            <h2>Schedule</h2>
+            <ul>
+                {% for period in schedule %}
+                    <li class="{% if period.current %}current-period{% endif %}" data-period-name="{{ period.name }}">
+                        {{ period.start }} - {{ period.end }}{% if period.name %} (<span class="custom-class-name">{{ period.name }}</span>){% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="announcements-area">
+            <h2>Announcements</h2>
+            <ul>
+                {% for announcement in announcements %}
+                    <li>{{ announcement }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p>{{ daily_quote }}</p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+    </div>
+    
+    <!-- Settings Button -->
+    <button class="settings-button" id="settingsButton">
+        <i class="fas fa-cog"></i>
+    </button>
+    
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="close-settings" id="closeSettings">&times;</button>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Theme</h3>
+                <div class="theme-toggle">
+                    <label for="themeToggle">Dark Mode</label>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="unit-toggle">
+                    <label>Temperature Unit</label>
+                    <div class="radio-container">
+                        <label class="radio-label">
+                            <input type="radio" name="tempUnit" value="F" id="unitF" checked>
+                            Fahrenheit (°F)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="tempUnit" value="C" id="unitC">
+                            Celsius (°C)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Customize Classes</h3>
+                <div class="class-settings" id="classSettings">
+                </div>
+            </div>
+            
+            <button class="save-settings" id="saveSettings">Save Settings</button>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
