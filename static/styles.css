@@ -1,0 +1,470 @@
+/* AI generated CSS */
+/* this is a python class not web development and design i dont think im supposed to know how to do this*/
+
+/* style.css with temperature unit conversion support */
+
+:root {
+    /* Main colors from the Google Slides palette */
+    --black: #000000;         /* Text and background 1 */
+    --light-gray: #F3F3F3;    /* Text and background 2 */
+    --blue: #0000CC;          /* Text and background 3 */
+    --orange: #FF9900;        /* Text and background 4 */
+    --purple: #9900CC;        /* Accent 1 */
+    --lavender: #CCCCFF;      /* Accent 2 */
+    --white: #FFFFFF;         /* Accent 3 */
+    
+    /* Default (light) theme variables */
+    --bg-color: var(--light-gray);
+    --panel-bg: var(--white);
+    --text-color: var(--black);
+    --heading-color: var(--blue);
+    --accent-color: var(--orange);
+    --highlight-bg: var(--lavender);
+    --highlight-border: var(--purple);
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --panel-bg: #1e1e1e;
+    --text-color: #e1e1e1;
+    --heading-color: #6495ED;
+    --accent-color: var(--orange);
+    --highlight-bg: rgba(153, 0, 204, 0.25);
+    --highlight-border: var(--purple);
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container styles */
+.container {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header styles */
+h1, h2, h3, h4 {
+    margin: 0.5em 0;
+    text-align: center;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+}
+
+/* List styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: var(--panel-bg);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    max-width: 90%;
+    border-left: 3px solid var(--heading-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease;
+}
+
+/* Current period styling */
+.current-period {
+    background-color: var(--highlight-bg);
+    font-weight: bold;
+    border-left: 3px solid var(--highlight-border);
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-areas:
+        "date-area date-area date-area"
+        "timeleft-area schedule-area announcements-area"
+        "weather-area schedule-area announcements-area"
+        "quote-area quote-area quote-area";
+    grid-template-columns: 1fr 2fr 1.5fr;
+    grid-template-rows: auto 1.2fr 1fr auto;
+    gap: 16px;
+    background: none;
+    box-shadow: none;
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    padding: 2vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.date-area {
+    grid-area: date-area;
+    background: var(--panel-bg);
+    border-radius: 8px;
+    padding: 18px 0;
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.date-area i {
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.timeleft-area, .weather-area, .schedule-area, .announcements-area, .quote-area {
+    background: var(--panel-bg);
+    border-radius: 8px;
+    padding: 18px 10px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.timeleft-area {
+    grid-area: timeleft-area;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2em;
+    min-width: 180px;
+}
+
+#time-left-text {
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+#countdown-timer {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.weather-area {
+    grid-area: weather-area;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1em;
+    min-width: 180px;
+}
+
+.schedule-area {
+    grid-area: schedule-area;
+    font-size: 1.3em;
+    min-width: 250px;
+    text-align: center;
+}
+
+.announcements-area {
+    grid-area: announcements-area;
+    font-size: 1.1em;
+    min-width: 200px;
+    text-align: center;
+}
+
+.quote-area {
+    grid-area: quote-area;
+    margin: 20px 0 0 0;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.quote-area i {
+    color: var(--accent-color);
+    font-size: 1.2em;
+    margin: 0 10px;
+}
+
+.quote-area p {
+    font-style: italic;
+    margin: 10px 0;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.weather-emoji {
+    font-size: 3em;
+    display: block;
+    margin: 0.2em auto;
+    line-height: 1;
+}
+
+.weather-info {
+    font-size: 1.1em;
+    display: block;
+    margin: 0.2em auto;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Settings button */
+.settings-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--panel-bg);
+    color: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.settings-button:hover {
+    transform: rotate(30deg);
+}
+
+/* Settings modal */
+.settings-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.settings-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.settings-content {
+    background-color: var(--panel-bg);
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.settings-header h2 {
+    margin: 0;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.settings-section {
+    margin-bottom: 20px;
+}
+
+.settings-section h3 {
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+/* Theme toggle and unit toggle */
+.theme-toggle, .unit-toggle {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.theme-toggle {
+    flex-direction: row;
+    align-items: center;
+}
+
+.theme-toggle label {
+    margin-right: 10px;
+}
+
+.unit-toggle {
+    margin-top: 15px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 8px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Class settings */
+.class-settings {
+    margin-top: 20px;
+}
+
+.class-input {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.class-input label {
+    width: 120px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.class-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.save-settings {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-areas:
+            "date-area"
+            "timeleft-area"
+            "weather-area"
+            "schedule-area"
+            "announcements-area"
+            "quote-area";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        width: 100vw;
+        padding: 2vw;
+    }
+    .date-area, .timeleft-area, .weather-area, .schedule-area, .announcements-area, .quote-area {
+        min-width: 0;
+    }
+    
+    .settings-button {
+        top: 10px;
+        right: 10px;
+    }
+}
