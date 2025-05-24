@@ -3,7 +3,6 @@
 A clean, daily dashboard web app for students, built with Flask.  
 Displays the current date, schedule, time left in the current period, weather outside the school, school announcements, and a motivational quote of the day.
 
-*AI GENERATED README/OTHER DOCUMENTATION!!!*
 ---
 
 ## 📸 Features
